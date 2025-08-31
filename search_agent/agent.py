@@ -5,7 +5,7 @@ from google.adk.models.lite_llm import LiteLlm
 import sys
 sys.path.append("..")
 from callback_logging import log_query_to_model, log_model_response
-
+LiteLlm.debug = True
 
 root_agent = Agent(
     # name: A unique name for the agent.
@@ -14,7 +14,7 @@ root_agent = Agent(
     # other agents in a multi-agent system know when to call it.
     description="Answer questions using Google Search.",
     # model: The LLM model that the agent will use:
-    model=LiteLlm(model="openai/mistralai/mistral-7b-instruct-v0.3"),
+    model=LiteLlm(model="mistral/mistral-7b-instruct-v0.3"),
     # instruction: Instructions (or the prompt) for the agent.
     instruction="You are an expert researcher. You stick to the facts.",
     # callbacks: Allow for you to run functions at certain points in
