@@ -8,22 +8,16 @@ from callback_logging import log_query_to_model, log_model_response
 LiteLlm.debug = True
 
 root_agent = Agent(
-    # name: A unique name for the agent.
     name="google_search_agent",
-    # description: A short description of the agent's purpose, so
-    # other agents in a multi-agent system know when to call it.
     description="Answer questions using Google Search.",
-    # model: The LLM model that the agent will use:
-    model=LiteLlm(model="mistral/mistral-7b-instruct-v0.3"),
-    # instruction: Instructions (or the prompt) for the agent.
+    # Use openai/ prefix for LM Studio (OpenAI-compatible API)
+    model=LiteLlm(
+        model="mistralai/mistral-7b-instruct-v0.3",  # Changed prefix
+        api_base="http://localhost:1234/v1",  # LM Studio default endpoint
+        api_key="not-needed"  # LM Studio doesn't require API key
+    ),
     instruction="You are an expert researcher. You stick to the facts.",
-    # callbacks: Allow for you to run functions at certain points in
-    # the agent's execution cycle. In this example, you will log the
-    # request to the agent and its response.
     before_model_callback=log_query_to_model,
     after_model_callback=log_model_response,
-
-    # tools: functions to enhance the model's capabilities.
-    # Add the google_search tool below.
     # tools=[google_search]
 )
