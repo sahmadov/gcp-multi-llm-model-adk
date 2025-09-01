@@ -12,7 +12,7 @@ root_agent = Agent(
     description="Answer questions using Google Search.",
     # Use openai/ prefix for LM Studio (OpenAI-compatible API)
     model=LiteLlm(
-        model="mistralai/mistral-7b-instruct-v0.3",  # Changed prefix
+        model="mistral/mistralai/mistral-7b-instruct-v0.3",  # Changed prefix
         api_base="http://localhost:1234/v1",  # LM Studio default endpoint
         api_key="not-needed"  # LM Studio doesn't require API key
     ),
