@@ -49,9 +49,9 @@ jobs:
           --image $REGION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE_NAME:$GITHUB_SHA \
           --platform managed \
           --region $REGION \
-          --allow-unauthenticated \
+          --no-allow-unauthenticated \
+          --ingress internal \
           --port 8000 \
-          --service-account sanan-multi-model-llm-with-adk@$PROJECT_ID.iam.gserviceaccount.com \
           --set-env-vars MISTRAL_API_KEY="${{ secrets.MISTRAL_API_KEY }}" \
           --set-env-vars USE_LOCAL_MODEL=false \
           --memory 512Mi \
