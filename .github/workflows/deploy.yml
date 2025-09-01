@@ -51,6 +51,7 @@ jobs:
           --region $REGION \
           --allow-unauthenticated \
           --port 8000 \
+          --service-account sanan-multi-model-llm-with-adk@$PROJECT_ID.iam.gserviceaccount.com \
           --set-env-vars MISTRAL_API_KEY="${{ secrets.MISTRAL_API_KEY }}" \
           --set-env-vars USE_LOCAL_MODEL=false \
           --memory 512Mi \
