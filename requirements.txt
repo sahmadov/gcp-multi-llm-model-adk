@@ -2,4 +2,5 @@ protobuf
 google-adk
 google-cloud-aiplatform[adk,agent_engines]
 python-dotenv
+litellm
 google-cloud-logging
