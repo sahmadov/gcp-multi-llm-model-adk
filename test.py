@@ -10,7 +10,7 @@ load_dotenv()
 def test_deployed_agent():
     """Test the deployed Google Search Agent
 
-    Note: The google_search function in agent.py is currently a placeholder.
+    Note: The google_search function in root_agent.py is currently a placeholder.
     To get real search results, you'll need to implement actual search functionality
     using Google Custom Search API or another search service.
     """
@@ -34,7 +34,7 @@ def test_deployed_agent():
     # You'll need to replace this with your actual agent resource name
     # Format: projects/{project}/locations/{location}/agents/{agent_id}
     # You can find this in the Google Cloud Console or from the deploy.py output
-    AGENT_RESOURCE_NAME = "projects/or2-msq-epmc-acm-de-t1iylu/locations/us-central1/reasoningEngines/2097063343285075968"
+    AGENT_RESOURCE_NAME = "projects/773561763236/locations/us-central1/reasoningEngines/9014592370926157824"
 
     if not AGENT_RESOURCE_NAME:
         print("❌ Agent resource name is required!")
