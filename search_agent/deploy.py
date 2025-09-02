@@ -3,11 +3,13 @@ import logging
 import vertexai
 from vertexai import agent_engines
 from vertexai.preview import reasoning_engines
-from agent import root_agent  # Import from flattened structure
 from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
+
+# Import the agent - fix the import path
+from search_agent.agent import root_agent
 
 
 def main():
@@ -76,7 +78,7 @@ def main():
                 "python-dotenv",
                 "protobuf",
                 "google-adk",
-                "google-cloud-logging"  # Add this for logging callbacks
+                "google-cloud-logging"
             ]
         )
 
