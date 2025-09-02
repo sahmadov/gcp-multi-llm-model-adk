@@ -44,13 +44,29 @@ def deploy():
         "litellm"
     ]
 
+    env_vars = {
+        "GOOGLE_GENAI_USE_VERTEXAI": os.environ.get("GOOGLE_GENAI_USE_VERTEXAI"),
+        "MODEL": os.environ.get("MODEL"),
+        "USE_LOCAL_MODEL": os.environ.get("USE_LOCAL_MODEL"),
+        "MISTRAL_API_KEY": os.environ.get("MISTRAL_API_KEY"),
+        "MISTRAL_MODEL": os.environ.get("MISTRAL_MODEL"),
+        "LOCAL_MODEL": os.environ.get("LOCAL_MODEL"),
+        "LOCAL_API_BASE": os.environ.get("LOCAL_API_BASE")
+    }
+
+    # Remove None values
+    env_vars = {k: v for k, v in env_vars.items() if v is not None}
+
     print("Deploying to Agent Engine...")
+    print(f"Environment variables being passed: {list(env_vars.keys())}")
+
     remote_app = agent_engines.create(
         agent_engine=adk_app,
         requirements=requirements,
         extra_packages=["agents"],
         display_name="Multi LLM Agents",
-        description="Agents used to test the Multi LLM Agents in GCP."
+        description="Agents used to test the Multi LLM Agents in GCP.",
+        env_vars=env_vars
     )
 
     print(f"Deployment successful!")
