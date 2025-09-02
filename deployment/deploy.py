@@ -58,7 +58,9 @@ def deploy():
     env_vars = {k: v for k, v in env_vars.items() if v is not None}
 
     print("Deploying to Agent Engine...")
-    print(f"Environment variables being passed: {list(env_vars.keys())}")
+    print("Environment variables being passed:")
+    for key, value in env_vars.items():
+        print(f"  {key}: {value}")
 
     remote_app = agent_engines.create(
         agent_engine=adk_app,

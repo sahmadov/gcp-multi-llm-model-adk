@@ -34,7 +34,7 @@ def test_deployed_agent():
     # You'll need to replace this with your actual agent resource name
     # Format: projects/{project}/locations/{location}/agents/{agent_id}
     # You can find this in the Google Cloud Console or from the deploy.py output
-    AGENT_RESOURCE_NAME = "projects/773561763236/locations/us-central1/reasoningEngines/8059829249923612672"
+    AGENT_RESOURCE_NAME = "projects/773561763236/locations/us-central1/reasoningEngines/9010088771298787328"
 
     if not AGENT_RESOURCE_NAME:
         print("❌ Agent resource name is required!")

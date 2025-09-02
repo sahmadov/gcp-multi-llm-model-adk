@@ -37,39 +37,10 @@ def get_model_config():
         )
 
 
-def google_search(query: str) -> dict:
-    """
-    Perform a Google search for the given query.
-    Keep this function self-contained to avoid pickling issues.
-
-    Args:
-        query (str): The search query
-
-    Returns:
-        dict: Search results with status and results
-    """
-    # TODO: Implement actual Google search functionality
-    # For now, return a placeholder
-    return {
-        "status": "success",
-        "query": query,
-        "results": [
-            {
-                "title": f"Search result for: {query}",
-                "url": "https://example.com",
-                "description": "This is a placeholder search result."
-            }
-        ]
-    }
-
-
 root_agent = Agent(
     name="google_search_agent",
-    description="Answer questions using Google Search.",
+    description="Answer questions using your knowledge base.",
     model=get_model_config(),
-    instruction="""You are an expert researcher with access to Google Search tools. 
-        You stick to facts and provide accurate, well-researched answers. 
-        Always cite your sources when providing information from searches.
-        If you cannot find reliable information, clearly state that.""",
-    tools=[google_search]
+    instruction="""You are an expert researcher with access to infor in your model. 
+        You stick to facts and provide accurate, well-researched answers.""",
 )
